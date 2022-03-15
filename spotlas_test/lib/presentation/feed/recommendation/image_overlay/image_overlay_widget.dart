@@ -4,47 +4,47 @@ import 'package:spotlas_test/presentation/feed/recommendation/image_overlay/info
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 class ImageOverlayWidget extends StatelessWidget {
-  // TODO icon asset
   final String imageUrl;
   final String title;
   final String subtitle;
-  final String iconAsset;
   final Color imageBorderColor;
+  final EdgeInsets padding;
+  final List<BoxShadow>? boxShadows;
+  final Widget icon;
 
   const ImageOverlayWidget({
     Key? key,
     required this.imageUrl,
     required this.title,
     required this.subtitle,
-    required this.iconAsset,
     required this.imageBorderColor,
+    required this.padding,
+    required this.icon,
+    this.boxShadows,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        // TODO real data
-        InfoWidget(
-          title: title,
-          subtitle: subtitle,
-          imageUrl: imageUrl,
-          imageBorderColor: imageBorderColor,
-        ),
-        const SizedBox(width: SizeHelper.S),
-        IconButton(
-          // TODO color
-          icon: SvgPicture.asset(
-            iconAsset,
-            width: 24,
-            height: 24,
-            color: Colors.white,
+    return Container(
+      clipBehavior: Clip.none,
+      padding: padding,
+      decoration: BoxDecoration(
+        boxShadow: boxShadows,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InfoWidget(
+            title: title,
+            subtitle: subtitle,
+            imageUrl: imageUrl,
+            imageBorderColor: imageBorderColor,
           ),
-          onPressed: () {},
-        ),
-      ],
+          SizedBox(width: SizeHelper.horizontal(context, SizeEnum.s)),
+          icon,
+        ],
+      ),
     );
   }
 }

@@ -24,13 +24,21 @@ class InfoWidget extends StatelessWidget {
         CircleAvatar(
           radius: 28,
           backgroundColor: imageBorderColor,
-          // TODO image
+          // TODO handle errors
           child: CircleAvatar(
             radius: 24.5,
-            backgroundImage: NetworkImage(imageUrl),
+            // backgroundImage: NetworkImage(imageUrl),
+            // child: Image.network(
+            //   imageUrl,
+            //   errorBuilder: ((context, error, stackTrace) {
+            //     return Container(
+            //       color: Colors.red,
+            //     );
+            //   }),
+            // ),
           ),
         ),
-        const SizedBox(width: SizeHelper.S),
+        SizedBox(width: SizeHelper.horizontal(context, SizeEnum.s)),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -38,7 +46,7 @@ class InfoWidget extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            const SizedBox(height: SizeHelper.XXXS),
+            SizedBox(height: SizeHelper.vertical(context, SizeEnum.xxxs)),
             Text(
               subtitle,
               style: Theme.of(context).textTheme.subtitle2,

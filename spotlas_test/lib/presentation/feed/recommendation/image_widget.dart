@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotlas_test/application/feed/feed_bloc.dart';
+import 'package:spotlas_test/infrastructure/feed/dtos/recommendation.dart';
 import 'package:spotlas_test/presentation/feed/recommendation/image_overlay/image_overlay_widget.dart';
-import 'package:spotlas_test/presentation/feed/recommendation/image_overlay/info_widget.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
+import 'package:spotlas_test/presentation/misc/svg_icons.dart';
 
 class ImageWidget extends StatelessWidget {
-  const ImageWidget({Key? key}) : super(key: key);
+  final Recommendation recommendation;
+
+  const ImageWidget(this.recommendation, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,34 +18,103 @@ class ImageWidget extends StatelessWidget {
       // TODO czy na pewno tak?
       width: 375,
       height: 468,
-      padding: const EdgeInsets.all(
-        SizeHelper.S,
-      ).copyWith(
-        right: SizeHelper.L,
-      ),
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/testimg.jpeg'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
         children: [
-          // tODO icons and data
-          ImageOverlayWidget(
-            iconAsset: 'assets/icons/options.svg',
-            title: 'nataliestevens',
-            subtitle: 'Natalie Stevens',
-            imageUrl: 'https://d3qsefuprrv1m2.cloudfront.net/resize/687/user_avatar/0d04960d-6f9a-4071-975e-7af4fc91ec91.jpeg',
-            imageBorderColor: Theme.of(context).colorScheme.primary,
+          PageView.builder(
+            itemCount: recommendation.photosResolutions.length,
+            itemBuilder: (context, index) {
+              final photo = recommendation.photosResolutions[index];
+
+              return Image.network(
+                photo.medium,
+                errorBuilder: ((context, error, stackTrace) => Container(
+                      color: Colors.grey[300],
+                      child: const Center(
+                        child: Text('Photo is not available'),
+                      ),
+                    )),
+              );
+            },
           ),
-          const ImageOverlayWidget(
-            iconAsset: 'assets/icons/star_border.svg',
-            title: 'Pachamama',
-            subtitle: 'Marylebone - London',
-            imageUrl: 'https://d38tlmxhfjgwd9.cloudfront.net/resize/687/user_avatar/38b39083-d864-49ff-ab17-8d1c98926df7.jpeg',
-            imageBorderColor: Colors.white,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // tODO Icons  and images in pref res
+              ImageOverlayWidget(
+                icon: IconButton(
+                  // TODO color
+                  icon: SvgIcons.options(
+                    width: 24,
+                    height: 24,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {},
+                ),
+                title: recommendation.authorUsername,
+                subtitle: recommendation.authorFullName,
+                imageUrl: recommendation.authorPhotosResolutions.medium,
+                imageBorderColor: Theme.of(context).colorScheme.primary,
+                padding: EdgeInsets.only(
+                  right: SizeHelper.horizontal(context, SizeEnum.l),
+                  left: SizeHelper.horizontal(context, SizeEnum.s),
+                  top: SizeHelper.vertical(context, SizeEnum.s),
+                ),
+                // TODO shadow
+                // boxShadows: [
+                //   BoxShadow(
+                //     blurStyle: BlurStyle.inner,
+                //     color: Colors.black,
+                //     blurRadius: 30,
+                //   ),
+                // ],
+              ),
+              ImageOverlayWidget(
+                icon: ShaderMask(
+                  shaderCallback: (bounds) {
+                    const gradient = [
+                      Color(0xFFFFE000),
+                      Color(0xFFFFB000),
+                    ];
+
+                    const white = [Colors.white, Colors.white];
+
+                    return LinearGradient(
+                      colors: recommendation.isBookmarked ? gradient : white,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ).createShader(bounds);
+                  },
+                  child: IconButton(
+                    icon: recommendation.isBookmarked
+                        ? SvgIcons.star(
+                            width: 24,
+                            height: 24,
+                            color: Colors.white,
+                          )
+                        : SvgIcons.starBorder(
+                            width: 24,
+                            height: 24,
+                            color: Colors.white,
+                          ),
+                    onPressed: () {
+                      context
+                          .read<FeedBloc>()
+                          .add(ToggleBookmark(recommendation));
+                    },
+                  ),
+                ),
+                title: recommendation.placeLocationName,
+                subtitle: recommendation.placeLocationNameO,
+                // TODO place logo
+                imageUrl: recommendation.placeLogoUrl,
+                imageBorderColor: Colors.white,
+                padding: EdgeInsets.only(
+                  right: SizeHelper.horizontal(context, SizeEnum.l),
+                  left: SizeHelper.horizontal(context, SizeEnum.s),
+                  bottom: SizeHelper.vertical(context, SizeEnum.s),
+                ),
+              ),
+            ],
           ),
         ],
       ),
