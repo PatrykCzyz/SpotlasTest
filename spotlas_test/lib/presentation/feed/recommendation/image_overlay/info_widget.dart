@@ -26,18 +26,9 @@ class InfoWidget extends StatelessWidget {
           CircleAvatar(
             radius: 28,
             backgroundColor: imageBorderColor,
-            // TODO handle errors
             child: CircleAvatar(
               radius: 24.5,
-              // backgroundImage: NetworkImage(imageUrl),
-              // child: Image.network(
-              //   imageUrl,
-              //   errorBuilder: ((context, error, stackTrace) {
-              //     return Container(
-              //       color: Colors.red,
-              //     );
-              //   }),
-              // ),
+              backgroundImage: NetworkImage(imageUrl),
             ),
           ),
           SizedBox(width: SizeHelper.horizontal(context, SizeEnum.s)),

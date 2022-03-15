@@ -20,9 +20,8 @@ class TagsWidget extends StatelessWidget {
         left: SizeHelper.horizontal(context, SizeEnum.s),
       ),
       height: 40,
-      // TODO przycina tagi jak sie scrolluja
       child: ListView.separated(
-        
+        clipBehavior: Clip.none,
         itemCount: tags.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {

@@ -26,14 +26,19 @@ class ImageWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 final photo = recommendation.photosResolutions[index];
 
-                return Image.network(
-                  photo.medium,
-                  errorBuilder: ((context, error, stackTrace) => Container(
-                        color: Colors.grey[300],
-                        child: const Center(
-                          child: Text('Photo is not available'),
-                        ),
-                      )),
+                return InkWell(
+                  onDoubleTap: () {
+                    context.read<FeedBloc>().add(ToggleLike(recommendation));
+                  },
+                  child: Image.network(
+                    photo.medium,
+                    errorBuilder: ((context, error, stackTrace) => Container(
+                          color: Colors.grey[300],
+                          child: const Center(
+                            child: Text('Photo is not available'),
+                          ),
+                        )),
+                  ),
                 );
               },
             ),

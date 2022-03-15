@@ -29,9 +29,8 @@ class ImageOverlayWidget extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            offset: const Offset(-10, 0),
-            blurRadius: 15,
+            color: Colors.black.withOpacity(0.35),
+            blurRadius: 30,
             spreadRadius: 15,
           ),
         ],
