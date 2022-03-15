@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:collection/collection.dart';
 import 'package:spotlas_test/infrastructure/feed/dtos/photo_resolution.dart';
 import 'package:spotlas_test/infrastructure/feed/dtos/tag.dart';
 
@@ -13,6 +10,7 @@ class Recommendation {
   final String placeName;
   final String placeLocationName;
   final String placeLocationNameO;
+  final String categoryDisplayName;
   final List<PhotoResolution> photosResolutions;
   final PhotoResolution authorPhotosResolutions;
   final bool isLiked;
@@ -30,6 +28,7 @@ class Recommendation {
     required this.placeName,
     required this.placeLocationName,
     required this.placeLocationNameO,
+    required this.categoryDisplayName,
     required this.photosResolutions,
     required this.authorPhotosResolutions,
     required this.isLiked,
@@ -49,6 +48,7 @@ class Recommendation {
       placeName: map['placeName'] ?? '',
       placeLocationName: map['placeLocationName'] ?? '',
       placeLocationNameO: map['placeLocationNameO'] ?? '',
+      categoryDisplayName: map['categoryDisplayName'] ?? '',
       photosResolutions: map['photosResolutions'] != null
           ? (map['photosResolutions'] as Iterable)
               .map((e) => PhotoResolution.fromMap(e))
@@ -73,6 +73,7 @@ class Recommendation {
     String? placeName,
     String? placeLocationName,
     String? placeLocationNameO,
+    String? categoryDisplayName,
     List<PhotoResolution>? photosResolutions,
     PhotoResolution? authorPhotosResolutions,
     bool? isLiked,
@@ -90,6 +91,7 @@ class Recommendation {
       placeName: placeName ?? this.placeName,
       placeLocationName: placeLocationName ?? this.placeLocationName,
       placeLocationNameO: placeLocationNameO ?? this.placeLocationNameO,
+      categoryDisplayName: categoryDisplayName ?? this.categoryDisplayName,
       photosResolutions: photosResolutions ?? this.photosResolutions,
       authorPhotosResolutions: authorPhotosResolutions ?? this.authorPhotosResolutions,
       isLiked: isLiked ?? this.isLiked,

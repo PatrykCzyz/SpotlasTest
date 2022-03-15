@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotlas_test/presentation/feed/recommendation/image_overlay/info_widget.dart';
+import 'package:spotlas_test/presentation/misc/size_enum.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 class ImageOverlayWidget extends StatelessWidget {
@@ -9,7 +9,6 @@ class ImageOverlayWidget extends StatelessWidget {
   final String subtitle;
   final Color imageBorderColor;
   final EdgeInsets padding;
-  final List<BoxShadow>? boxShadows;
   final Widget icon;
 
   const ImageOverlayWidget({
@@ -20,7 +19,6 @@ class ImageOverlayWidget extends StatelessWidget {
     required this.imageBorderColor,
     required this.padding,
     required this.icon,
-    this.boxShadows,
   }) : super(key: key);
 
   @override
@@ -29,7 +27,14 @@ class ImageOverlayWidget extends StatelessWidget {
       clipBehavior: Clip.none,
       padding: padding,
       decoration: BoxDecoration(
-        boxShadow: boxShadows,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            offset: const Offset(-10, 0),
+            blurRadius: 15,
+            spreadRadius: 15,
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

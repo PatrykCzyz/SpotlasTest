@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotlas_test/infrastructure/feed/dtos/tag.dart';
+import 'package:spotlas_test/presentation/misc/size_enum.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 class TagsWidget extends StatelessWidget {

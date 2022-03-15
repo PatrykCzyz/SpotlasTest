@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
             height: 1.111,
             shadows: [
               Shadow(
-                color: Colors.black,
+                color: Color(0xCC000000),
                 offset: Offset(0, 1),
                 blurRadius: 8,
               )

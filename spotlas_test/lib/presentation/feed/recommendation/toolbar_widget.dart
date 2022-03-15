@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotlas_test/application/feed/feed_bloc.dart';
 import 'package:spotlas_test/infrastructure/feed/dtos/recommendation.dart';
+import 'package:spotlas_test/presentation/misc/size_enum.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
 import 'package:spotlas_test/presentation/misc/svg_icons.dart';
 

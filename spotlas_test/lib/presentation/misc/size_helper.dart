@@ -1,72 +1,7 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:flutter/material.dart';
-
-enum SizeEnum {
-  xxxxs,
-  xxxs,
-  xxs,
-  xs,
-  s,
-  m,
-  l,
-  xl,
-  xxl,
-  xxxl,
-  xxxxl,
-}
+import 'package:spotlas_test/presentation/misc/size_enum.dart';
 
 class SizeHelper {
-  static const _screenWidthS = 320;
-  static const _screenWidthM = 375;
-  static const _screenWidthL = 428;
-
-  static const _screenHeightS = 667;
-  static const _screenHeightM = 812;
-  static const _screenHeightL = 926;
-
-  static const _sizeS = <SizeEnum, int>{
-    SizeEnum.xxxxs: 1,
-    SizeEnum.xxxs: 1,
-    SizeEnum.xxs: 2,
-    SizeEnum.xs: 4,
-    SizeEnum.s: 8,
-    SizeEnum.m: 12,
-    SizeEnum.l: 16,
-    SizeEnum.xl: 24,
-    SizeEnum.xxl: 32,
-    SizeEnum.xxxl: 48,
-    SizeEnum.xxxxl: 96,
-  };
-
-  static const _sizeM = <SizeEnum, int>{
-    SizeEnum.xxxxs: 1,
-    SizeEnum.xxxs: 2,
-    SizeEnum.xxs: 4,
-    SizeEnum.xs: 8,
-    SizeEnum.s: 12,
-    SizeEnum.m: 16,
-    SizeEnum.l: 24,
-    SizeEnum.xl: 32,
-    SizeEnum.xxl: 48,
-    SizeEnum.xxxl: 64,
-    SizeEnum.xxxxl: 128,
-  };
-
-  static const _sizeL = <SizeEnum, int>{
-    SizeEnum.xxxxs: 1,
-    SizeEnum.xxxs: 3,
-    SizeEnum.xxs: 6,
-    SizeEnum.xs: 12,
-    SizeEnum.s: 16,
-    SizeEnum.m: 24,
-    SizeEnum.l: 32,
-    SizeEnum.xl: 40,
-    SizeEnum.xxl: 56,
-    SizeEnum.xxxl: 80,
-    SizeEnum.xxxxl: 160,
-  };
-
   static double horizontal(
     BuildContext context,
     SizeEnum size,
@@ -136,4 +71,54 @@ class SizeHelper {
 
     throw Exception();
   }
+
+  static const _screenWidthS = 320;
+  static const _screenWidthM = 375;
+  static const _screenWidthL = 428;
+
+  static const _screenHeightS = 667;
+  static const _screenHeightM = 812;
+  static const _screenHeightL = 926;
+
+  static const _sizeS = <SizeEnum, int>{
+    SizeEnum.xxxxs: 1,
+    SizeEnum.xxxs: 1,
+    SizeEnum.xxs: 2,
+    SizeEnum.xs: 4,
+    SizeEnum.s: 8,
+    SizeEnum.m: 12,
+    SizeEnum.l: 16,
+    SizeEnum.xl: 24,
+    SizeEnum.xxl: 32,
+    SizeEnum.xxxl: 48,
+    SizeEnum.xxxxl: 96,
+  };
+
+  static const _sizeM = <SizeEnum, int>{
+    SizeEnum.xxxxs: 1,
+    SizeEnum.xxxs: 2,
+    SizeEnum.xxs: 4,
+    SizeEnum.xs: 8,
+    SizeEnum.s: 12,
+    SizeEnum.m: 16,
+    SizeEnum.l: 24,
+    SizeEnum.xl: 32,
+    SizeEnum.xxl: 48,
+    SizeEnum.xxxl: 64,
+    SizeEnum.xxxxl: 128,
+  };
+
+  static const _sizeL = <SizeEnum, int>{
+    SizeEnum.xxxxs: 1,
+    SizeEnum.xxxs: 3,
+    SizeEnum.xxs: 6,
+    SizeEnum.xs: 12,
+    SizeEnum.s: 16,
+    SizeEnum.m: 24,
+    SizeEnum.l: 32,
+    SizeEnum.xl: 40,
+    SizeEnum.xxl: 56,
+    SizeEnum.xxxl: 80,
+    SizeEnum.xxxxl: 160,
+  };
 }

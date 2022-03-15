@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotlas_test/presentation/misc/size_enum.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 class InfoWidget extends StatelessWidget {
@@ -17,43 +18,48 @@ class InfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CircleAvatar(
-          radius: 28,
-          backgroundColor: imageBorderColor,
-          // TODO handle errors
-          child: CircleAvatar(
-            radius: 24.5,
-            // backgroundImage: NetworkImage(imageUrl),
-            // child: Image.network(
-            //   imageUrl,
-            //   errorBuilder: ((context, error, stackTrace) {
-            //     return Container(
-            //       color: Colors.red,
-            //     );
-            //   }),
-            // ),
+    return Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 28,
+            backgroundColor: imageBorderColor,
+            // TODO handle errors
+            child: CircleAvatar(
+              radius: 24.5,
+              // backgroundImage: NetworkImage(imageUrl),
+              // child: Image.network(
+              //   imageUrl,
+              //   errorBuilder: ((context, error, stackTrace) {
+              //     return Container(
+              //       color: Colors.red,
+              //     );
+              //   }),
+              // ),
+            ),
           ),
-        ),
-        SizedBox(width: SizeHelper.horizontal(context, SizeEnum.s)),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: Theme.of(context).textTheme.subtitle1,
+          SizedBox(width: SizeHelper.horizontal(context, SizeEnum.s)),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+                SizedBox(height: SizeHelper.vertical(context, SizeEnum.xxxs)),
+                Text(
+                  subtitle,
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+              ],
             ),
-            SizedBox(height: SizeHelper.vertical(context, SizeEnum.xxxs)),
-            Text(
-              subtitle,
-              style: Theme.of(context).textTheme.subtitle2,
-            ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

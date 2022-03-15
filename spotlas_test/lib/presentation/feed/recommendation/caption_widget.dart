@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotlas_test/presentation/misc/size_enum.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 class CaptionWidget extends StatelessWidget {

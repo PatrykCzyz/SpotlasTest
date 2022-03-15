@@ -4,6 +4,7 @@ import 'package:spotlas_test/presentation/feed/recommendation/caption_widget.dar
 import 'package:spotlas_test/presentation/feed/recommendation/image_widget.dart';
 import 'package:spotlas_test/presentation/feed/recommendation/tags_widget.dart';
 import 'package:spotlas_test/presentation/feed/recommendation/toolbar_widget.dart';
+import 'package:spotlas_test/presentation/misc/size_enum.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 class RecommendationWidget extends StatelessWidget {
