@@ -74,11 +74,12 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
 
         final index = stateLoaded.recommendations.indexOf(event.recommendation);
 
-        stateLoaded.recommendations[index] = newRecommendation;
+        final newRecomendations = List<Recommendation>.from(stateLoaded.recommendations);
+        newRecomendations[index] = newRecommendation;
 
         emit(
           stateLoaded.copyWith(
-            recommendations: stateLoaded.recommendations,
+            recommendations: newRecomendations,
           ),
         );
       }

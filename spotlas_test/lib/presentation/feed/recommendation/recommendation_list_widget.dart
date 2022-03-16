@@ -22,7 +22,7 @@ class RecommendationListWidget extends StatefulWidget {
 class _RecommendationListWidgetState extends State<RecommendationListWidget> {
   final _scrollController = ScrollController();
   bool _isLoadingNextPage = false;
-  static const _itemHeight = 700; // TODO moze da sie prawdziwa wartosc
+  static const _estimatedItemHeight = 700;
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _RecommendationListWidgetState extends State<RecommendationListWidget> {
 
     _scrollController.addListener(() {
       if (!_isLoadingNextPage &&
-          _itemHeight * 5 > _scrollController.position.extentAfter) {
+          _estimatedItemHeight * 5 > _scrollController.position.extentAfter) {
         context.read<FeedBloc>().add(FetchNextPage());
       }
     });

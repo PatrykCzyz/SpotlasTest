@@ -8,24 +8,24 @@ class SizeHelper {
   ) {
     final width = MediaQuery.of(context).size.width;
 
-    if (width <= _screenWidthS) {
+    if (width <= screenWidthS) {
       return _sizeS[size]!.toDouble();
-    } else if (width >= _screenWidthL) {
+    } else if (width >= screenWidthL) {
       return _sizeL[size]!.toDouble();
-    } else if (width == _screenWidthM) {
+    } else if (width == screenWidthM) {
       return _sizeM[size]!.toDouble();
-    } else if (width > _screenWidthS && width < _screenWidthM) {
-      const rangeDifference = _screenWidthM - _screenWidthS;
-      final screenDifference = width - _screenWidthS;
+    } else if (width > screenWidthS && width < screenWidthM) {
+      const rangeDifference = screenWidthM - screenWidthS;
+      final screenDifference = width - screenWidthS;
 
       final scale = screenDifference / rangeDifference;
 
       final sizeDifference = _sizeM[size]! - _sizeS[size]!;
 
       return _sizeS[size]! + (sizeDifference * scale);
-    } else if (width > _screenWidthM && width < _screenWidthL) {
-      const rangeDifference = _screenWidthL - _screenWidthM;
-      final screenDifference = width - _screenWidthM;
+    } else if (width > screenWidthM && width < screenWidthL) {
+      const rangeDifference = screenWidthL - screenWidthM;
+      final screenDifference = width - screenWidthM;
 
       final scale = screenDifference / rangeDifference;
 
@@ -43,24 +43,24 @@ class SizeHelper {
   ) {
     final height = MediaQuery.of(context).size.height;
 
-    if (height <= _screenHeightS) {
+    if (height <= screenHeightS) {
       return _sizeS[size]!.toDouble();
-    } else if (height >= _screenHeightL) {
+    } else if (height >= screenHeightL) {
       return _sizeL[size]!.toDouble();
-    } else if (height == _screenHeightM) {
+    } else if (height == screenHeightM) {
       return _sizeM[size]!.toDouble();
-    } else if (height > _screenHeightS && height < _screenHeightM) {
-      const rangeDifference = _screenHeightM - _screenHeightS;
-      final screenDifference = height - _screenHeightS;
+    } else if (height > screenHeightS && height < screenHeightM) {
+      const rangeDifference = screenHeightM - screenHeightS;
+      final screenDifference = height - screenHeightS;
 
       final scale = screenDifference / rangeDifference;
 
       final sizeDifference = _sizeM[size]! - _sizeS[size]!;
 
       return _sizeS[size]! + (sizeDifference * scale);
-    } else if (height > _screenHeightM && height < _screenHeightL) {
-      const rangeDifference = _screenHeightL - _screenHeightM;
-      final screenDifference = height - _screenHeightM;
+    } else if (height > screenHeightM && height < screenHeightL) {
+      const rangeDifference = screenHeightL - screenHeightM;
+      final screenDifference = height - screenHeightM;
 
       final scale = screenDifference / rangeDifference;
 
@@ -72,13 +72,13 @@ class SizeHelper {
     throw Exception();
   }
 
-  static const _screenWidthS = 320;
-  static const _screenWidthM = 375;
-  static const _screenWidthL = 428;
+  static const screenWidthS = 320;
+  static const screenWidthM = 375;
+  static const screenWidthL = 428;
 
-  static const _screenHeightS = 667;
-  static const _screenHeightM = 812;
-  static const _screenHeightL = 926;
+  static const screenHeightS = 667;
+  static const screenHeightM = 812;
+  static const screenHeightL = 926;
 
   static const _sizeS = <SizeEnum, int>{
     SizeEnum.xxxxs: 1,
