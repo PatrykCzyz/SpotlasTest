@@ -4,7 +4,6 @@ import 'package:spotlas_test/application/feed/feed_bloc.dart';
 import 'package:spotlas_test/infrastructure/feed/feed_repository.dart';
 import 'package:spotlas_test/presentation/feed/feed_page.dart';
 import 'package:get_it/get_it.dart';
-import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 final getIt = GetIt.instance;
 

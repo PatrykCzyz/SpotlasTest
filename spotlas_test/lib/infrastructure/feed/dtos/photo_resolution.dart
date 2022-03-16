@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class PhotoResolution {
   final String original;
   final String large;

@@ -51,20 +51,22 @@ class TagWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 1,
-      borderRadius: BorderRadius.all(Radius.circular(4)),
+      borderRadius: const BorderRadius.all(Radius.circular(4)),
       child: Container(
         height: 32,
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: 6,
           horizontal: 8,
         ),
-        child: Text(text,
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-              height: 1.333,
-              color: Colors.black,
-            )),
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+            height: 1.333,
+            color: Colors.black,
+          ),
+        ),
       ),
     );
   }

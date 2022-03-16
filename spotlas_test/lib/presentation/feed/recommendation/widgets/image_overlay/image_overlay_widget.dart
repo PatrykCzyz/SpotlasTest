@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:spotlas_test/presentation/feed/recommendation/image_overlay/info_widget.dart';
 import 'package:spotlas_test/presentation/misc/size_enum.dart';
 import 'package:spotlas_test/presentation/misc/size_helper.dart';
+import 'package:spotlas_test/presentation/feed/recommendation/widgets/image_overlay/info_widget.dart';
 
 class ImageOverlayWidget extends StatelessWidget {
   final String imageUrl;

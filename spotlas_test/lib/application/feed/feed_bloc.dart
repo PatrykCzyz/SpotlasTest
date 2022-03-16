@@ -50,8 +50,8 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
       if (state is FeedLoaded) {
         final stateLoaded = state as FeedLoaded;
 
-        final newRecommendation =
-            event.recommendation.copyWith(isBookmarked: !event.recommendation.isBookmarked);
+        final newRecommendation = event.recommendation
+            .copyWith(isBookmarked: !event.recommendation.isBookmarked);
 
         final index = stateLoaded.recommendations.indexOf(event.recommendation);
 
@@ -69,12 +69,13 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
       if (state is FeedLoaded) {
         final stateLoaded = state as FeedLoaded;
 
-        final newRecommendation =
-            event.recommendation.copyWith(isLiked: !event.recommendation.isLiked);
+        final newRecommendation = event.recommendation
+            .copyWith(isLiked: !event.recommendation.isLiked);
 
         final index = stateLoaded.recommendations.indexOf(event.recommendation);
 
-        final newRecomendations = List<Recommendation>.from(stateLoaded.recommendations);
+        final newRecomendations =
+            List<Recommendation>.from(stateLoaded.recommendations);
         newRecomendations[index] = newRecommendation;
 
         emit(

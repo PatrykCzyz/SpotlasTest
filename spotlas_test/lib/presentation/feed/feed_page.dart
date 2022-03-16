@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spotlas_test/application/feed/feed_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotlas_test/infrastructure/feed/dtos/recommendation.dart';
 import 'package:spotlas_test/main.dart';
 import 'package:spotlas_test/presentation/feed/recommendation/recommendation_list_widget.dart';
-import 'package:spotlas_test/presentation/feed/recommendation/recommendation_widget.dart';
-import 'package:spotlas_test/presentation/misc/size_helper.dart';
 
 class FeedPage extends StatelessWidget {
   const FeedPage({Key? key}) : super(key: key);
